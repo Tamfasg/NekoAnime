@@ -1,0 +1,113 @@
+import {
+  useLimeplay
+} from "./chunk-WUIGF72E.mjs";
+import {
+  use_state_ref_default
+} from "./chunk-OUCN7IQ4.mjs";
+
+// src/hooks/usePiP.ts
+import { useEffect, useState } from "react";
+function usePiP({
+  onError,
+  onExit,
+  onEnter,
+  onChange,
+  onResize
+} = {}) {
+  const { playbackRef, playerRef } = useLimeplay();
+  const playback = playbackRef.current;
+  const player = playerRef.current;
+  const [isPiPActive, setIsPiPActive, isPiPActiveRef] = use_state_ref_default(false);
+  const [isPiPSupported, setIsPiPSupported] = useState(false);
+  const [isPiPAllowed, setIsPiPAllowed] = useState(false);
+  const [pipWindow, setPipWindow] = useState(
+    null
+  );
+  const pipError = (error) => {
+    if (onError && typeof onError === "function") {
+      onError(error);
+    }
+  };
+  const togglePiP = async () => {
+    if (!document.pictureInPictureElement) {
+      playback.requestPictureInPicture().then((_pipWindow) => {
+        setPipWindow(_pipWindow);
+        if (onEnter && typeof onEnter === "function") {
+          onEnter();
+        }
+        _pipWindow.addEventListener("resize", (event) => {
+          if (onResize && typeof onResize === "function") {
+            onResize(event);
+          }
+        });
+      }).catch(pipError);
+    } else {
+      document.exitPictureInPicture().then(() => {
+        setPipWindow(null);
+        if (onExit && typeof onExit === "function") {
+          onExit();
+        }
+      }).catch(pipError);
+    }
+  };
+  useEffect(() => {
+    if (!document.pictureInPictureEnabled) {
+      setIsPiPSupported(false);
+      return void 0;
+    }
+    if (!playback.disablePictureInPicture) {
+      setIsPiPAllowed(true);
+    }
+    setIsPiPSupported(true);
+    if (document.pictureInPictureElement) {
+      if (document.pictureInPictureElement !== playback) {
+        document.exitPictureInPicture();
+      } else {
+        setIsPiPActive(true);
+      }
+    }
+    const pipEventHandler = (_event) => {
+      if (document.pictureInPictureElement) {
+        setIsPiPActive(true);
+      } else {
+        setIsPiPActive(false);
+      }
+      if (onChange && typeof onChange === "function") {
+        onChange(_event);
+      }
+    };
+    const trackChangeHandler = async () => {
+      if (player.isAudioOnly() && isPiPActiveRef.current) {
+        await togglePiP();
+      }
+    };
+    const events = ["enterpictureinpicture", "leavepictureinpicture"];
+    events.forEach((event) => {
+      playback.addEventListener(event, pipEventHandler);
+    });
+    if (player) {
+      player.addEventListener("trackschanged", trackChangeHandler);
+    }
+    return () => {
+      if (playback) {
+        events.forEach((event) => {
+          playback.removeEventListener(event, pipEventHandler);
+        });
+      }
+      if (player) {
+        player.removeEventListener("trackschanged", trackChangeHandler);
+      }
+    };
+  }, [onChange, onResize]);
+  return {
+    isPiPActive,
+    isPiPSupported,
+    isPiPAllowed,
+    pipWindow,
+    togglePiP
+  };
+}
+
+export {
+  usePiP
+};

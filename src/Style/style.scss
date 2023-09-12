@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+$font-name: "Ubuntu", sans-serif;
+$bg-color: #272829;
+$font-color: #F2F2F2;
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: $font-name;
+  background: $bg-color;
+  color: $font-color;
+}
+nav{
+  background: #404040;
+  width: 320px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto 0 auto;
+  border-radius: 19px;
+  input{
+    padding: 5px;
+    font-size: 1rem;
+    width: 310px;
+    height: calc(100% - 5px);
+    outline: none;
+    background: none;
+    color: #fff;
+    border: none;
+  }
+}
+#countainer::before{
+  content: '';
+  width: 80vw;
+  height:.3rem;
+  background: royalblue;
+  position: absolute;
+  top: -10px;
+  margin: 6px auto;
+  left: 10%;
+  border-radius: .5rem;
+}
+#countainer{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  padding: 7px;
+  margin: 0 auto;
+  justify-content: center;
+  position: relative;
+  margin: 17px auto;
+  bottom: 5px;
+  .card{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: start;
+    flex-direction: column;
+    padding: 5px;
+    color: $font-color;
+    background: #000;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0px 0px 2px rgba(255,255,255,.2);
+    img{
+      width: 100%;
+      height: 100%;
+      padding: 2px;
+      border-radius: 6px 0px 6px 0px;
+      object-fit: cover;
+    }
+    h3{
+      font-size: .8rem;
+      font-weight: bold;
+      text-wrap: wrap;
+      position: relative;
+      width: 100%;
+      left: 5px;
+    }
+  }
+  .switcher{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    position: relative;
+    justify-content: space-evenly;
+    align-items: center;
+    left: 55%;
+    #icon{
+      font-size: 1.4rem;
+      width: 70px;
+      padding: 5px;
+    }
+    #icon:hover{
+      color: royalblue;
+    }
+  }
+}
+main{
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  .imgC{
+    img{
+      width: 70%;
+      object-fit: cover;
+      border-radius: 7px;
+    }
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  .cardn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    h1{
+      font-size: 1.4rem;
+      font-weight: 500;
+      padding: 10px;
+      width: 260px;
+    }
+  }
+  .desc{
+    width: 300px;
+    height: 150px;
+    overflow: scroll;
+    margin: 10px auto;
+  }
+  #icon{
+    width: 150px;
+    text-align: center;
+    .film{
+      color: tomato;
+    }
+  }
+  button{
+    font-size: 1.2rem;
+    outline: none;
+    border: 1.3px solid #000000;
+    padding: 8px;
+    margin: 10px auto;
+    border-radius: 5px;
+  }
+  .but{
+    margin: 0 auto;
+  }
+  .second{
+    padding: 15px;
+    width: 100%;
+  }
+  .db{
+    width: 250px;
+    height: 3px;
+    border-radius: 10px;
+    background: royalblue;
+  }
+}
+body{
+  margin: 0;
+  padding: 0;
+  header{
+    nav{
+      margin: 5px auto;
+      z-index: 100;
+      width: 95vw;
+      background: #61677A;
+      border-radius: 5px;
+      font-size: 1.3rem;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      #search{
+        background: #EEEDFF;
+        color: #404040;
+        padding: 7px;
+        border-radius: 50%;
+        transition: all ease-in 0.5s;
+      }
+      #search:hover{
+        background: #9FA1D7;
+        animation: bar 0.4s ease-in;
+      }
+      #bar{
+        position: relative;
+        color: #363745;
+      }
+      #bar:hover{
+        position: relative;
+        transform: translate(100px);
+      }
+    }
+  }
+}
+.carousel{
+  height: 280px;
+  border-radius: 7px;
+  margin: 1px auto 0px auto;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  .carousel-indicators{
+    button{
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+    }
+  }
+  a{
+    display: none;
+  }
+}
+#img{
+  object-fit: cover;
+  background-position: center;
+  height: 280px;
+  opacity: 0.5;
+  width:100%;
+  border-radius: 7px;
+  position: relative;
+  // animation: changImgPos 3s linear infinite backwards;
+}
+// @keyframes changImgPos{
+// 0%{
+//   top: 0px;
+//   left: 0px;
+// }
+// 50%{
+//   top: -20px;
+//   left: -10px;
+// }
+// 100%{
+//   left: 0px;
+//   top: 0px;
+// }
+// }
+#smallPoster{
+  position: relative;
+  right: 20px;
+  top: -10px;
+  border-radius: 5px;
+  width: 50%;
+  height: 190px;
+}
+#info-Carosell{
+  h2{
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    top: 20px;
+    text-wrap: balance;
+  }
+  .space{
+    white-space: nowrap;
+  }
+  height: 190px;
+}
+.synone{
+  font-size: 1.1rem;
+  position: relative;
+  left: 18px;
+  margin: 5px 5px;
+}
+.synone::before{
+  content: "•";
+  margin: auto 6px;
+}
+.name{
+  width: 100vw;
+  gap: 7px;
+  p{
+    text-wrap: blance;
+    margin: auto 7px;
+    text-align: center;
+  }
+}
+.genre{
+  margin: 10px auto;
+  width: 100vw;
+  gap: 7px;
+  #genreC{
+    text-wrap: blance;
+    margin: auto 7px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    p{
+      font-size: 1.1rem;
+      border: 1.4px solid gray;
+      padding: 2px;
+      border-radius: 5px;
+    }
+  }
+}
+
+#countainerN{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 50% 50%;
+  grid-gap: 15px;
+  padding: 17px;
+  margin: 0 auto;
+  justify-content: center;
+  .cardN{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: start;
+    flex-direction: column;
+    padding: 5px;
+    color: $font-color;
+    background: #000;
+    border-radius: 4px;
+    position: relative;
+    img{
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      border-radius: 6px 0px 6px 0px;
+      object-fit: cover;
+    }
+    h3{
+      font-size: 1rem;
+      font-weight: bold;
+      text-wrap: balance;
+      position: relative;
+      width: 100%;
+      left: 5px;
+    }
+  }
+}
+#logoN{
+  font-family: "Tilt Prism", cursive;
+}
