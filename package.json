@@ -10,12 +10,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-<<<<<<< HEAD
     "deploy": "dotenv -e .env npm run deploy:script",
     "deploy:script": "gh-pages -d build -t $MY_GITHUB_TOKEN"
-=======
-    "deploy": "gh-pages -d build"
->>>>>>> cb6d492ab5f86785b9a1466aeb177292beed8e56
   },
   "dependencies": {
     "@consumet/extensions": "^1.5.1",
