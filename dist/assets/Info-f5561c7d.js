@@ -1,4 +1,4 @@
-import{r as t,j as e,u as E,L as b,a as w}from"./index-96f033f3.js";import{F as p,m as _,n as S,o as F,b as A}from"./index-336e7c9c.js";/* empty css                */const q=({idn:o})=>{const[r,h]=t.useState(!1),[i,m]=t.useState([]),[s,x]=t.useState([]),[d,u]=t.useState(!1),[l,j]=t.useState([]);let n=`
+import{r as t,j as e,u as E,L as b,a as w}from"./index-f7ccdac8.js";import{F as p,m as _,n as S,o as F,b as A}from"./index-f8d6305d.js";/* empty css                */const q=({idn:o})=>{const[r,h]=t.useState(!1),[i,m]=t.useState([]),[s,x]=t.useState([]),[d,u]=t.useState(!1),[l,j]=t.useState([]);let n=`
 query ($id: Int, $chid: Int) { # Define which variables will be used in the query (id)
   Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
     id

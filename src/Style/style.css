@@ -9,19 +9,19 @@ body {
   align-items: center;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
-  background: #272829;
-  color: #F2F2F2;
+  background: #F0EDFF;
+  color: #eceef8;
 }
 
 nav {
-  background: #404040;
+  background: #4054ba;
   width: 320px;
   padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px auto 0 auto;
-  border-radius: 19px;
+  border-radius: 10px;
 }
 nav input {
   padding: 5px;
@@ -30,8 +30,11 @@ nav input {
   height: calc(100% - 5px);
   outline: none;
   background: none;
-  color: #fff;
+  color: #eceef8;
   border: none;
+}
+nav input::placeholder {
+  color: #eceef8;
 }
 
 #countainer::before {
@@ -52,7 +55,7 @@ nav input {
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
+  grid-gap: 2px;
   padding: 7px;
   margin: 0 auto;
   justify-content: center;
@@ -67,11 +70,11 @@ nav input {
   text-align: start;
   flex-direction: column;
   padding: 5px;
-  color: #F2F2F2;
-  background: #000;
-  border-radius: 4px;
+  color: #eceef8;
+  background: black;
+  border-radius: 2px;
   position: relative;
-  box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 2px rgb(255, 255, 255);
 }
 #countainer .card img {
   width: 100%;
@@ -88,23 +91,15 @@ nav input {
   width: 100%;
   left: 5px;
 }
-#countainer .switcher {
-  display: flex;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 1.2rem;
-  position: relative;
-  justify-content: space-evenly;
-  align-items: center;
-  left: 55%;
-}
-#countainer .switcher #icon {
-  font-size: 1.4rem;
-  width: 70px;
-  padding: 5px;
-}
-#countainer .switcher #icon:hover {
-  color: royalblue;
+
+.linear {
+  width: 250px;
+  height: 250px;
+  border-radius: 30%;
+  background: radial-gradient(circle, #394FB4, #4054ba, #000, #404);
+  position: absolute;
+  filter: blur(20px);
+  opacity: 0.3;
 }
 
 main {
@@ -119,16 +114,19 @@ main {
   text-align: center;
 }
 main .imgC {
-  width: fit-content;
-  height: fit-content;
+  width: 169px;
+  height: 240px;
   display: flex;
   justify-content: center;
   margin: 10px;
 }
 main .imgC img {
-  width: 70%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 7px;
+  object-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 }
 main .cardn {
   display: flex;
@@ -159,10 +157,23 @@ main #icon .film {
 main button {
   font-size: 1.2rem;
   outline: none;
-  border: 1.3px solid #000000;
+  border: 1.3px solid #4054ba;
   padding: 8px;
   margin: 10px auto;
   border-radius: 5px;
+  animation: bg 2s ease-in;
+  background: #4054ba;
+  border: 1.3px solid #404;
+}
+@keyframes bg {
+  0% {
+    background: none;
+    border: 1.3px solid #4054ba;
+  }
+  100% {
+    background: #4054ba;
+    border: 1.3px solid #404;
+  }
 }
 main .but {
   margin: 0 auto;
@@ -182,13 +193,19 @@ body {
   margin: 0;
   padding: 0;
 }
+body header {
+  position: relative;
+  bottom: 2px;
+  border-bottom: 1px solid royalblue;
+}
 body header nav {
-  margin: 5px auto;
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 100;
-  width: 95vw;
-  background: #61677A;
-  border-radius: 5px;
-  font-size: 1.3rem;
+  width: 100vw;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0px;
   padding: 12px;
   display: flex;
   justify-content: space-between;
@@ -197,33 +214,26 @@ body header nav {
 body header nav #search {
   background: #EEEDFF;
   color: #404040;
-  padding: 7px;
   border-radius: 50%;
-  transition: all ease-in 0.5s;
+  padding: 6px;
+  transition: all 0.7s ease-in;
 }
 body header nav #search:hover {
   background: #9FA1D7;
-  animation: bar 0.4s ease-in;
 }
 body header nav #bar {
   position: relative;
   color: #363745;
 }
-body header nav #bar:hover {
-  position: relative;
-  transform: translate(100px);
-}
 
 .carousel {
   height: 280px;
-  border-radius: 7px;
-  margin: 1px auto 0px auto;
   width: 100vw;
   position: relative;
   overflow: hidden;
 }
 .carousel .carousel-indicators button {
-  border-radius: 50%;
+  border-radius: 100%;
   width: 10px;
   height: 10px;
 }
@@ -234,10 +244,11 @@ body header nav #bar:hover {
 #img {
   object-fit: cover;
   background-position: center;
+  background: linear-gradient(to top, #404040, transparent);
+  filter: blur(10px);
   height: 280px;
-  opacity: 0.5;
+  opacity: 0.3;
   width: 100%;
-  border-radius: 7px;
   position: relative;
 }
 
@@ -257,7 +268,7 @@ body header nav #bar:hover {
   font-size: 1.1rem;
   font-weight: 500;
   position: relative;
-  top: 20px;
+  top: 16px;
   text-wrap: balance;
 }
 #info-Carosell .space {
@@ -310,7 +321,7 @@ body header nav #bar:hover {
   width: 100%;
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
   padding: 17px;
   margin: 0 auto;
@@ -323,7 +334,7 @@ body header nav #bar:hover {
   text-align: start;
   flex-direction: column;
   padding: 5px;
-  color: #F2F2F2;
+  color: #eceef8;
   background: #000;
   border-radius: 4px;
   position: relative;
@@ -344,8 +355,140 @@ body header nav #bar:hover {
   left: 5px;
 }
 
+.switcher {
+  display: flex;
+  width: 202px;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.switcher #icon {
+  padding: 5px;
+}
+.switcher #icon:hover {
+  color: royalblue;
+}
+.switcher p {
+  font-size: 1.4rem;
+}
+
 #logoN {
   font-family: "Tilt Prism", cursive;
+  color: #eceef8;
+}
+
+.Ep-titleC {
+  width: 98vw;
+  padding: 8px;
+  margin: 8px auto;
+  border-radius: 6px;
+  background: #333942;
+}
+.Ep-titleC .line {
+  width: 100%;
+  height: 2px;
+  background: #4166e1;
+}
+.Ep-titleC .Ep-title {
+  font-size: 1.3rem;
+  padding: 4px;
+  color: #eceef8;
+}
+
+.topAiring::before {
+  content: "";
+  width: 80vw;
+  height: 0.3rem;
+  background: royalblue;
+  margin: 6px auto;
+  border-radius: 0.5rem;
+  position: absolute;
+  left: 10%;
+  top: -20px;
+}
+
+.trend {
+  height: 230px;
+  background: linear-gradient(to top, #333942, transparent 50%);
+  z-index: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px dashed royalblue;
+  position: relative;
+}
+.trend .topAiring #airingCard {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.trend .topAiring #airingCard div {
+  padding: 5px;
+}
+.trend .topAiring #airingCard div img {
+  width: 200px;
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+}
+.trend .topAiring #airingCard #center {
+  position: relative;
+  bottom: -10px;
+  transition: all 0.7s ease-in;
+}
+.trend .topAiring #airingCard #center div {
+  position: absolute;
+  top: 0;
+  padding: 5px;
+  background: #4054ba;
+}
+.trend .topAiring #airingCard #left {
+  position: relative;
+  left: 14px;
+  bottom: -11px;
+  transform: rotate(-5deg);
+  transition: all 0.7s ease-in;
+}
+.trend .topAiring #airingCard #left div {
+  position: absolute;
+  top: 0;
+  padding: 5px;
+  background: #4054ba;
+}
+.trend .topAiring #airingCard #right {
+  position: relative;
+  right: 14px;
+  bottom: -11px;
+  transform: rotate(5deg);
+  transition: all 0.7s ease-in;
+}
+.trend .topAiring #airingCard #right div {
+  position: absolute;
+  top: 0;
+  padding: 5px;
+  background: #4054ba;
+}
+.trend .topAiring #airingCard p {
+  color: #eceef8;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.topAiring:hover #airingCard #center {
+  position: relative;
+  transition: all cubic-bezier(0.52, 0.38, 0.28, 0.1) ease-in;
+  bottom: 0;
+}
+.topAiring:hover #airingCard #left {
+  position: relative;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all cubic-bezier(0.52, 0.38, 0.28, 0.1) ease-in;
+}
+.topAiring:hover #airingCard #right {
+  position: relative;
+  right: 0;
+  transform: rotate(0deg);
+  transition: all cubic-bezier(0.52, 0.38, 0.28, 0.1) ease-in;
 }
 
 /*# sourceMappingURL=style.css.map */

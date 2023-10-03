@@ -1,8 +1,19 @@
-import React from 'react'
-
-const WatchInfo: React.FC = () => {
+import React, { useEffect, useState } from 'react'
+import { FetchInfo, Data } from "./Api";
+interface Foo {
+  idN: number
+}
+const WatchInfo: React.FC<Foo> = ({ idN }) => {
+  const [animeData, setAnimeData] = useState<Data>()
+  useEffect(() => {
+    FetchInfo(idN).then(data => {
+      setAnimeData(data.res.data.Media)
+    })
+  }, [idN])
+  console.log(animeData)
   return (
-    <div>WatchInfo: React.FC = </div>
+    <div>
+    </div>
   )
 }
 

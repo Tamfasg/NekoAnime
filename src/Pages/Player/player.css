@@ -1,29 +1,32 @@
-body{
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-}
+/* body{ */
+/*   margin: 0; */
+/*   padding: 0; */
+/*   box-sizing: border-box; */
+/*   width: 100vw; */
+/* } */
 #videoC{
-  width: 350px;
+  width: 100vw;
   height: 200px;
-  padding: 0;
-  margin: 5px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background: #000;
 }
 .PlayerControle{
   position: absolute;
-  bottom: 0;
+  bottom: -100px;
   left: 0;
   right: 0;
   z-index: 100;
-  background: linear-gradient(to top,rgba(0,0,0,.3), transparent);
+  background: linear-gradient(to top,rgba(0,0,0,.6), transparent);
   height: 50px;
   padding: 10px;
   width: 100%;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  /* pointer-events: none; */
 }
 .PlayerControle > button{
   padding: 5px;
@@ -31,6 +34,12 @@ body{
 #videoC > video{
   width: 100%;
   height: 100%;
+}
+.showControle{
+  bottom: 0;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+
 }
 .PlayerControle .Controle{
   display: flex;
@@ -67,18 +76,67 @@ body{
   bottom: 11px;
 }
 .Controle .Start .Time{
-  font-size: .8rem;
+  font-size: 1rem;
   color: #EFEDFF;
+  position: absolute;
+  font-weight: normal;
+  top: 2px;
 }
 .PlayerControle .TimelineCountainer{
   position: absolute;
   top: 0;
   left: 0;
+  background: #fff;
   width: 100%;
 }
 .PlayerControle .TimelineCountainer .Timeline{
-  width: 100%;
-  height: 4px;
-  background: white;
+  width:0%;
+  height: 3px;
+  background: tomato;
 }
+.fullscreen video{
+  width: 100%;
+}
+.paramet{
+  position: absolute;
+}
+#videoC:fullscreen .PlayerControle .TimelineCountainer{
+  position: absolute;
+  top: -9px;
+  left: 0;
+  background: #fff;
+  width: 100%;
+}
+#videoC:fullscreen .Controle .end{
+  position: absolute;
+  right: 10px;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  bottom: 15px;
+}
+#videoC:fullscreen{
+  width: 100%;
+}
+#videoC:fullscreen > video{
+  width: 100vw;
+  height: 100%;
 
+}
+/* #videoC:fullscreen .PlayerControle{ */
+/*   height: 70px; */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/* } */
+/* #videoC:fullscreen .Controle .Start .Time{ */
+/*   position: relative; */
+/*   bottom: 15px; */
+/*   font-size: 1.3rem; */
+/*   font-weight: normal;   */
+/* } */
+/* #videoC:fullscreen .PlayerControle .Controle .end{ */
+/*   position: relative; */
+/*   bottom: 6px; */
+/* } */

@@ -13,6 +13,6 @@ export default defineConfig({
     ]
   },
   plugins: [react()],
-  base: '/NekoAnime/',
+  base: '/NekoAnime/'
 } as UserConfig);
 

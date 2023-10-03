@@ -1,13 +1,11 @@
 import axios from 'axios';
 import 'animate.css'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-
 const Carouselle: React.FC = () => {
   const url = "https://consumet-api-mpty.onrender.com/anime/zoro/recent-episodes"
   const [lastE, setLastE] = useState<any[]>([])
   const [isloading, setIsLoading] = useState(false)
-  let curId = useRef<any>(null)
   useEffect(() => {
     const api = async () => {
       const data = await axios.get(url)
@@ -18,22 +16,20 @@ const Carouselle: React.FC = () => {
     }
     api()
   }, [!isloading])
-  useEffect(() => {
-    console.log(curId)
-  }, [])
+
   return (
     <>
       {isloading ?
 
-        <Carousel className="animate__animated animate__fadeInDown animate__deplay-2s">
-          {isloading && lastE.map(anime => {
+        <Carousel className="animate__animated animate__fadeInDown">
+          {isloading && lastE.map((anime, index) => {
             return (
-              <Carousel.Item ref={curId}>
-                <img src={anime.image} id="img" />
+              <Carousel.Item>
+                <img src={anime.image} id="img" key={index} />
                 <Carousel.Caption>
-                  <div className='flex flex-row ' id="info-Carosell">
-                    <img src={anime.image} id='smallPoster' />
-                    {anime.title.length < 18 ? <h2 className="space">{anime.title}</h2> : <h2>{anime.title}</h2>}
+                  <div className='flex flex-row ' id="info-Carosell" key={index}>
+                    <img src={anime.image} id='smallPoster' key={anime.image} />
+                    {anime.title.length < 18 ? <h2 className="space" key={anime.title.length}>{anime.title}</h2> : <h2 key={anime.title}>{anime.title}</h2>}
                   </div>
                 </Carousel.Caption>
               </Carousel.Item>

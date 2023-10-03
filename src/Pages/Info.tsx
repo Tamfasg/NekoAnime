@@ -21,9 +21,9 @@ const Info: React.FC = () => {
         .finally(() => setLoading(false))
       setAnimeData(data)
       setAnimeId(data.alID)
-      console.error(err)
 
     } catch (error: any) {
+      console.error(err)
       console.error(error)
     }
   }
@@ -35,6 +35,7 @@ const Info: React.FC = () => {
     <>
       {!loading ?
         <>
+          <div className='linear'></div>
           <main>
             <div className='cardn'>
               <div className='imgC'>
@@ -59,9 +60,11 @@ const Info: React.FC = () => {
                 <Link
                   to={`/watch/${animeData.episodes[0].id}`}
                   state={{
-                    id: animeId
+                    id: animeId,
+                    title: animeData.episodes[0].title,
+                    data: animeData
                   }}
-                  key={animeData.episodes.id}
+                  key={animeData.episodes[0].id}
                 >
                   <button>Watch Now</button>
                 </Link>
@@ -80,6 +83,7 @@ const Info: React.FC = () => {
         </>
         : <><Loading /></>}
       {!loading ? <Aniliste idn={animeId} /> : <></>}
+      {/* {!loading ? <WatchInfo idN={animeId} /> : <></>} */}
     </>
   );
 };
